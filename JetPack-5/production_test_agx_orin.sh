@@ -220,11 +220,7 @@ function test_menu {
 				;;
 			23 )
 				echo "6-AXIS IMU & Temperature Sensor Test"
-				if [[ $(i2cget -f -y 7 0x6b 0x0f) == "0x6a" ]]; then
-					gnome-terminal -- watch i2cdump -f -y 7 0x6b
-				else
-					echo "Could not found"
-				fi
+				sudo gnome-terminal -- $SCRIPTS_FOLDER/test_wsen_isds_imu.sh -i 0.1
 				;;
 			24 )
 				echo "Fan Test"
